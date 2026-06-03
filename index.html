@@ -33,75 +33,20 @@
   --radius-sm: 10px;
   --radius-pill: 100px;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  padding: 0;
-}
-
-.page {
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 6rem;
-}
-
-/* HEADER */
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+.page { max-width: 560px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
 .header { margin-bottom: 3rem; }
-.wordmark {
-  font-family: 'DM Serif Display', serif;
-  font-size: 48px;
-  letter-spacing: -2px;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 6px;
-}
+.wordmark { font-family: 'DM Serif Display', serif; font-size: 48px; letter-spacing: -2px; color: var(--text); line-height: 1; margin-bottom: 6px; }
 .wordmark em { font-style: italic; color: var(--pink-mid); }
-.tagline {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  font-weight: 500;
-}
-
-/* THREAD */
+.tagline { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 500; }
 .thread { display: flex; flex-direction: column; gap: 2rem; }
-
-.step {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: rise 0.35s ease forwards;
-}
+.step { opacity: 0; transform: translateY(12px); animation: rise 0.35s ease forwards; }
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-
-.q-text {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px;
-  color: var(--text);
-  margin-bottom: 16px;
-  line-height: 1.35;
-}
-
-/* CHIPS */
+.q-text { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--text); margin-bottom: 16px; line-height: 1.35; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip {
-  padding: 8px 18px;
-  border-radius: var(--radius-pill);
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1.5px solid transparent;
-  transition: all 0.12s;
-  user-select: none;
-  font-family: 'DM Sans', sans-serif;
-}
+.chip { padding: 8px 18px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid transparent; transition: all 0.12s; user-select: none; font-family: 'DM Sans', sans-serif; }
 .chip:hover { transform: translateY(-1px); }
-
 .c-amber { background: var(--amber-light); color: #633806; border-color: var(--amber-mid); }
 .c-amber.on { background: var(--amber-mid); color: var(--amber-dark); border-color: var(--amber-border); }
 .c-purple { background: var(--purple-light); color: #3C3489; border-color: #AFA9EC; }
@@ -110,17 +55,8 @@ body {
 .c-teal.on { background: var(--teal-mid); color: var(--teal-light); border-color: var(--teal-border); }
 .c-pink { background: var(--pink-light); color: #72243E; border-color: #ED93B1; }
 .c-pink.on { background: var(--pink-mid); color: var(--pink-light); border-color: var(--pink-border); }
-
-/* FAMILIARITY */
 .fam-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.fam-card {
-  padding: 20px;
-  border-radius: var(--radius);
-  border: 1.5px solid transparent;
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
-}
+.fam-card { padding: 20px; border-radius: var(--radius); border: 1.5px solid transparent; cursor: pointer; transition: all 0.15s; user-select: none; }
 .fam-card:hover { transform: translateY(-2px); }
 .fam-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
 .fam-desc { font-size: 12px; line-height: 1.5; opacity: 0.75; }
@@ -128,272 +64,58 @@ body {
 .fam-rings.on { background: var(--amber-mid); border-color: var(--amber-border); }
 .fam-surprise { background: var(--purple-light); border-color: #AFA9EC; color: var(--purple-dark); }
 .fam-surprise.on { background: var(--purple-mid); border-color: var(--purple-border); color: var(--purple-light); }
-
-/* BUTTONS */
-.next-btn {
-  margin-top: 14px;
-  padding: 10px 24px;
-  border-radius: var(--radius-pill);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  background: var(--text);
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
-  transition: all 0.12s;
-  display: none;
-  letter-spacing: 0.01em;
-}
+.next-btn { margin-top: 14px; padding: 10px 24px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: var(--text); color: #fff; font-family: 'DM Sans', sans-serif; transition: all 0.12s; display: none; letter-spacing: 0.01em; }
 .next-btn:hover { background: #333; transform: translateY(-1px); }
 .next-btn.show { display: inline-block; }
-
-.confirmed-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+.confirmed-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .confirmed-label { font-size: 13px; color: var(--text-secondary); }
-.confirmed-pill {
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 13px;
-  font-weight: 500;
-  background: #F0F0EC;
-  color: var(--text-secondary);
-  border: 0.5px solid var(--border);
-}
-
-textarea {
-  width: 100%;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  height: 80px;
-  resize: none;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  padding: 12px 14px;
-  background: var(--card-bg);
-  color: var(--text);
-  margin-top: 4px;
-  outline: none;
-  transition: border-color 0.12s;
-}
+.confirmed-pill { padding: 5px 14px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; background: #F0F0EC; color: var(--text-secondary); border: 0.5px solid var(--border); }
+textarea { width: 100%; font-family: 'DM Sans', sans-serif; font-size: 14px; height: 80px; resize: none; border-radius: var(--radius-sm); border: 1.5px solid var(--border); padding: 12px 14px; background: var(--card-bg); color: var(--text); margin-top: 4px; outline: none; transition: border-color 0.12s; }
 textarea:focus { border-color: var(--text); }
 textarea::placeholder { color: var(--text-tertiary); }
-
-.generate-btn {
-  width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  background: var(--pink-mid);
-  color: #fff;
-  margin-top: 14px;
-  font-family: 'DM Sans', sans-serif;
-  transition: all 0.12s;
-  letter-spacing: 0.01em;
-}
+.generate-btn { width: 100%; padding: 16px; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; background: var(--pink-mid); color: #fff; margin-top: 14px; font-family: 'DM Sans', sans-serif; transition: all 0.12s; letter-spacing: 0.01em; }
 .generate-btn:hover { background: var(--pink-border); transform: translateY(-1px); }
 .generate-btn:active { transform: scale(0.99); }
-
-/* PASTE AREA */
-.paste-wrap {
-  margin-top: 16px;
-  padding: 16px;
-  border-radius: var(--radius);
-  background: #F5F5F0;
-  border: 1px dashed var(--border);
-  display: none;
-}
-.paste-wrap.show { display: block; }
-.paste-label {
-  font-size: 12px;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.paste-wrap textarea { height: 100px; font-size: 11px; font-family: monospace; }
-.paste-btn {
-  margin-top: 8px;
-  padding: 8px 20px;
-  border-radius: var(--radius-pill);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  background: var(--text);
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
-  transition: all 0.12s;
-}
-.paste-btn:hover { background: #333; }
-
-/* LOADER */
-.loader {
-  text-align: center;
-  padding: 3rem 0;
-  display: none;
-}
+.generate-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+.loader { text-align: center; padding: 3rem 0; display: none; }
 .loader.show { display: block; }
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 4px;
-  animation: bop 1.2s infinite;
-}
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 4px; animation: bop 1.2s infinite; }
 .dot:nth-child(1) { background: var(--amber-mid); }
 .dot:nth-child(2) { background: var(--pink-mid); animation-delay: 0.2s; }
 .dot:nth-child(3) { background: var(--purple-mid); animation-delay: 0.4s; }
 @keyframes bop { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-10px)} }
-.loader-text {
-  font-size: 11px;
-  color: var(--text-tertiary);
-  margin-top: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* RESULT */
+.loader-text { font-size: 11px; color: var(--text-tertiary); margin-top: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
 .result { display: none; margin-top: 2.5rem; }
 .result.show { display: block; }
-
-.r-banner {
-  border-radius: var(--radius);
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  border: 1.5px solid;
-}
-.r-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 12px;
-}
-.r-identity {
-  font-family: 'DM Serif Display', serif;
-  font-size: 26px;
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-.r-why {
-  font-size: 14px;
-  line-height: 1.75;
-  opacity: 0.8;
-}
-
-.sec-label {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--text-tertiary);
-  margin-bottom: 12px;
-  margin-top: 1.75rem;
-}
-
+.r-banner { border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem; border: 1.5px solid; }
+.r-badge { display: inline-block; padding: 4px 12px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.r-identity { font-family: 'DM Serif Display', serif; font-size: 26px; line-height: 1.3; margin-bottom: 12px; }
+.r-why { font-size: 14px; line-height: 1.75; opacity: 0.8; }
+.sec-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-tertiary); margin-bottom: 12px; margin-top: 1.75rem; }
 .artists { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.artist-card {
-  padding: 16px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-}
+.artist-card { padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--card-bg); }
 .artist-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
 .artist-why { font-size: 12px; color: var(--text-secondary); line-height: 1.55; }
-.artist-spot {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #1DB954;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-}
+.artist-spot { display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600; color: #1DB954; text-decoration: none; }
 .artist-spot:hover { opacity: 0.8; }
-
 .tempo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .tempo-card { padding: 16px; border-radius: var(--radius-sm); text-align: center; }
 .tempo-tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
 .tempo-bpm { font-size: 16px; font-weight: 700; margin-bottom: 4px; font-family: 'DM Serif Display', serif; }
 .tempo-desc { font-size: 11px; line-height: 1.45; }
 .t-pre { background: var(--amber-light); }
-.t-pre .tempo-tag { color: #854F0B; }
-.t-pre .tempo-bpm { color: var(--amber-dark); }
-.t-pre .tempo-desc { color: #633806; }
+.t-pre .tempo-tag { color: #854F0B; } .t-pre .tempo-bpm { color: var(--amber-dark); } .t-pre .tempo-desc { color: #633806; }
 .t-peak { background: var(--purple-light); }
-.t-peak .tempo-tag { color: var(--purple-border); }
-.t-peak .tempo-bpm { color: var(--purple-dark); }
-.t-peak .tempo-desc { color: #3C3489; }
+.t-peak .tempo-tag { color: var(--purple-border); } .t-peak .tempo-bpm { color: var(--purple-dark); } .t-peak .tempo-desc { color: #3C3489; }
 .t-late { background: var(--teal-light); }
-.t-late .tempo-tag { color: var(--teal-border); }
-.t-late .tempo-bpm { color: var(--teal-dark); }
-.t-late .tempo-desc { color: #085041; }
-
+.t-late .tempo-tag { color: var(--teal-border); } .t-late .tempo-bpm { color: var(--teal-dark); } .t-late .tempo-desc { color: #085041; }
 .avoids { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
-.avoid-tag {
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 12px;
-  font-weight: 500;
-  background: #FCEBEB;
-  color: #A32D2D;
-  border: 0.5px solid #F09595;
-}
-
-.spotify-btn {
-  display: block;
-  padding: 16px 20px;
-  border-radius: var(--radius);
-  background: #1DB954;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-  margin-bottom: 1rem;
-  transition: all 0.12s;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 0.01em;
-}
+.avoid-tag { padding: 6px 14px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; background: #FCEBEB; color: #A32D2D; border: 0.5px solid #F09595; }
+.spotify-btn { display: block; padding: 16px 20px; border-radius: var(--radius); background: #1DB954; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; text-align: center; margin-bottom: 1rem; transition: all 0.12s; font-family: 'DM Sans', sans-serif; }
 .spotify-btn:hover { background: #17a349; transform: translateY(-1px); }
-
-.restart-btn {
-  width: 100%;
-  padding: 13px;
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border);
-  font-family: 'DM Sans', sans-serif;
-  transition: all 0.12s;
-}
+.restart-btn { width: 100%; padding: 13px; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; background: transparent; color: var(--text-secondary); border: 1px solid var(--border); font-family: 'DM Sans', sans-serif; transition: all 0.12s; }
 .restart-btn:hover { background: #F0F0EC; }
-
-.error-msg {
-  background: #FCEBEB;
-  color: #A32D2D;
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  font-size: 13px;
-  display: none;
-  margin-top: 10px;
-}
+.error-msg { background: #FCEBEB; color: #A32D2D; border-radius: var(--radius-sm); padding: 12px 16px; font-size: 13px; display: none; margin-top: 10px; }
 .error-msg.show { display: block; }
 </style>
 </head>
@@ -403,16 +125,12 @@ textarea::placeholder { color: var(--text-tertiary); }
     <div class="wordmark">sonic<em>*</em></div>
     <div class="tagline">music identity for restaurants</div>
   </div>
-
   <div class="thread" id="thread"></div>
-
   <div class="loader" id="loader">
     <div><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
     <div class="loader-text">Building your brief</div>
   </div>
-
-  <div class="error-msg" id="error-msg">Could not parse the brief. Make sure you copied the full JSON response.</div>
-
+  <div class="error-msg" id="error-msg">Something went wrong. Please try again.</div>
   <div class="result" id="result">
     <div class="r-banner" id="r-banner">
       <div class="r-badge" id="r-badge"></div>
@@ -423,21 +141,9 @@ textarea::placeholder { color: var(--text-tertiary); }
     <div class="artists" id="r-artists"></div>
     <div class="sec-label">Tempo by service</div>
     <div class="tempo-row">
-      <div class="tempo-card t-pre">
-        <div class="tempo-tag">Pre-service</div>
-        <div class="tempo-bpm" id="r-pre-bpm"></div>
-        <div class="tempo-desc" id="r-pre-desc"></div>
-      </div>
-      <div class="tempo-card t-peak">
-        <div class="tempo-tag">Peak service</div>
-        <div class="tempo-bpm" id="r-peak-bpm"></div>
-        <div class="tempo-desc" id="r-peak-desc"></div>
-      </div>
-      <div class="tempo-card t-late">
-        <div class="tempo-tag">Wind down</div>
-        <div class="tempo-bpm" id="r-late-bpm"></div>
-        <div class="tempo-desc" id="r-late-desc"></div>
-      </div>
+      <div class="tempo-card t-pre"><div class="tempo-tag">Pre-service</div><div class="tempo-bpm" id="r-pre-bpm"></div><div class="tempo-desc" id="r-pre-desc"></div></div>
+      <div class="tempo-card t-peak"><div class="tempo-tag">Peak service</div><div class="tempo-bpm" id="r-peak-bpm"></div><div class="tempo-desc" id="r-peak-desc"></div></div>
+      <div class="tempo-card t-late"><div class="tempo-tag">Wind down</div><div class="tempo-bpm" id="r-late-bpm"></div><div class="tempo-desc" id="r-late-desc"></div></div>
     </div>
     <div class="sec-label">Never play</div>
     <div class="avoids" id="r-avoid"></div>
@@ -445,7 +151,6 @@ textarea::placeholder { color: var(--text-tertiary); }
     <button class="restart-btn" onclick="restart()">Start over</button>
   </div>
 </div>
-
 <script>
 const STEPS = [
   { id: 'cuisine', q: "What are you serving?", type: 'chips', color: 'c-amber', options: ['North Indian','South Indian','Coastal seafood','Italian','Japanese','Mediterranean','Modern continental','Street food','Korean','Middle Eastern','Cafe'] },
@@ -455,12 +160,10 @@ const STEPS = [
   { id: 'familiarity', q: "What should the music do?", type: 'familiarity' },
   { id: 'extra', q: "Anything else about your space?", type: 'text', placeholder: "Rooftop, open kitchen, heritage building, natural wine focus, very intimate... or leave blank." }
 ];
-
-let answers = {};
-let current = 0;
+let answers = {}, current = 0;
 const thread = document.getElementById('thread');
 
-function addStep(html, delay = 0) {
+function addStep(html, delay=0) {
   const div = document.createElement('div');
   div.className = 'step';
   div.style.animationDelay = delay + 'ms';
@@ -474,7 +177,6 @@ function showStep(i) {
   if (i >= STEPS.length) { showGenerate(); return; }
   const s = STEPS[i];
   let html = '';
-
   if (s.type === 'chips') {
     html = `<div class="q-text">${s.q}</div><div class="chips" id="chips-${s.id}">`;
     s.options.forEach(o => html += `<div class="chip ${s.color}" data-v="${o}">${o}</div>`);
@@ -482,24 +184,14 @@ function showStep(i) {
   } else if (s.type === 'familiarity') {
     html = `<div class="q-text">${s.q}</div>
     <div class="fam-row">
-      <div class="fam-card fam-rings" data-v="familiar" id="fam-rings">
-        <div class="fam-title">Rings a bell</div>
-        <div class="fam-desc">Music they already love, just better chosen</div>
-      </div>
-      <div class="fam-card fam-surprise" data-v="discovery" id="fam-surprise">
-        <div class="fam-title">Surprise me</div>
-        <div class="fam-desc">Music that makes them reach for Shazam</div>
-      </div>
+      <div class="fam-card fam-rings" data-v="familiar" id="fam-rings"><div class="fam-title">Rings a bell</div><div class="fam-desc">Music they already love, just better chosen</div></div>
+      <div class="fam-card fam-surprise" data-v="discovery" id="fam-surprise"><div class="fam-title">Surprise me</div><div class="fam-desc">Music that makes them reach for Shazam</div></div>
     </div>
     <button class="next-btn" id="next-familiarity">Next →</button>`;
   } else if (s.type === 'text') {
-    html = `<div class="q-text">${s.q}</div>
-    <textarea id="txt-extra" placeholder="${s.placeholder}"></textarea>
-    <button class="next-btn show" id="next-extra">Next →</button>`;
+    html = `<div class="q-text">${s.q}</div><textarea id="txt-extra" placeholder="${s.placeholder}"></textarea><button class="next-btn show" id="next-extra">Next →</button>`;
   }
-
   const el = addStep(html, 100);
-
   if (s.type === 'chips') {
     const chipsEl = el.querySelector(`#chips-${s.id}`);
     const nextBtn = el.querySelector(`#next-${s.id}`);
@@ -514,8 +206,8 @@ function showStep(i) {
     nextBtn.addEventListener('click', () => confirmStep(i, el, answers[s.id]));
   } else if (s.type === 'familiarity') {
     const nextBtn = el.querySelector('#next-familiarity');
-    ['fam-rings', 'fam-surprise'].forEach(id => {
-      el.querySelector('#' + id).addEventListener('click', function () {
+    ['fam-rings','fam-surprise'].forEach(id => {
+      el.querySelector('#'+id).addEventListener('click', function() {
         el.querySelectorAll('.fam-card').forEach(c => c.classList.remove('on'));
         this.classList.add('on');
         answers.familiarity = this.dataset.v;
@@ -523,8 +215,7 @@ function showStep(i) {
       });
     });
     nextBtn.addEventListener('click', () => {
-      const label = answers.familiarity === 'familiar' ? 'Rings a bell' : 'Surprise me';
-      confirmStep(i, el, label);
+      confirmStep(i, el, answers.familiarity === 'familiar' ? 'Rings a bell' : 'Surprise me');
     });
   } else if (s.type === 'text') {
     el.querySelector('#next-extra').addEventListener('click', () => {
@@ -541,40 +232,41 @@ function confirmStep(i, el, label) {
   setTimeout(() => showStep(current), 200);
 }
 
+function showGenerate() {
+  const el = addStep(`<div class="q-text" style="margin-bottom:16px">Ready. Generate your sonic brief.</div><button class="generate-btn" id="gen-btn">Generate brief</button>`, 100);
+  el.querySelector('#gen-btn').addEventListener('click', generate);
+}
+
 function buildPrompt() {
   return `Generate a sonic brief for this restaurant. Be deeply culturally specific — name exact eras, cities, scenes, movements. Never recommend anything generic or obvious. Inputs: Cuisine: ${answers.cuisine}, Vibe: ${answers.vibe}, Service: ${answers.time}, Crowd: ${answers.crowd}, Music direction: ${answers.familiarity === 'familiar' ? 'familiar and nostalgic — music they already know and love, just better chosen' : 'discovery — music that surprises and makes people reach for Shazam'}, Extra context: ${answers.extra || 'none'}.
 
 Respond with ONLY valid JSON, no markdown, no explanation:
-{"identity":"one punchy evocative line capturing this restaurant's sonic soul","badge":"2-3 word genre or scene label that feels discovered not generic","color":"amber or purple or teal or pink","why":"2-3 sentences with specific cultural reasoning — name the exact era, geography, scene or movement. No vague genre names.","artists":[{"name":"Artist name","why":"one specific culturally grounded sentence — mention the era, the album, the feeling","search":"spotify search query to find playlists"},{"name":"Artist name","why":"one specific sentence","search":"spotify search query"},{"name":"Artist name","why":"one specific sentence","search":"spotify search query"},{"name":"Artist name","why":"one specific sentence","search":"spotify search query"}],"tempo":{"pre":{"bpm":"BPM range","desc":"specific mood for pre-service"},"peak":{"bpm":"BPM range","desc":"specific mood for peak service"},"late":{"bpm":"BPM range","desc":"specific mood for wind down"}},"avoid":["specific thing to avoid with brief reason","specific thing","specific thing","specific thing"],"spotifyQuery":"specific search query that would surface real curated playlists on Spotify"}`;
+{"identity":"one punchy evocative line capturing this restaurant's sonic soul","badge":"2-3 word genre or scene label that feels discovered not generic","color":"amber or purple or teal or pink","why":"2-3 sentences with specific cultural reasoning — name the exact era, geography, scene or movement. No vague genre names.","artists":[{"name":"Artist name","why":"one specific culturally grounded sentence","search":"spotify search query"},{"name":"Artist name","why":"one specific sentence","search":"spotify search query"},{"name":"Artist name","why":"one specific sentence","search":"spotify search query"},{"name":"Artist name","why":"one specific sentence","search":"spotify search query"}],"tempo":{"pre":{"bpm":"BPM range","desc":"specific mood for pre-service"},"peak":{"bpm":"BPM range","desc":"specific mood for peak service"},"late":{"bpm":"BPM range","desc":"specific mood for wind down"}},"avoid":["specific thing to avoid","specific thing","specific thing","specific thing"],"spotifyQuery":"specific search query for curated playlists on Spotify"}`;
 }
 
-function showGenerate() {
-  const el = addStep(`
-    <div class="q-text" style="margin-bottom:16px">Ready. Generate your sonic brief.</div>
-    <button class="generate-btn" id="gen-btn">Generate brief</button>
-    <div class="paste-wrap" id="paste-wrap">
-      <div class="paste-label">Paste Claude's JSON response here</div>
-      <textarea id="json-input" placeholder='{"identity":"...","badge":"...",...}'></textarea>
-      <button class="paste-btn" onclick="renderFromPaste()">Render brief</button>
-    </div>
-  `, 100);
-
-  el.querySelector('#gen-btn').addEventListener('click', () => {
-    const prompt = buildPrompt();
-    // Copy prompt to clipboard for easy pasting to Claude
-    navigator.clipboard.writeText(prompt).catch(() => {});
-    document.getElementById('loader').classList.add('show');
-    document.getElementById('paste-wrap').classList.add('show');
-    el.querySelector('#gen-btn').textContent = 'Prompt copied — paste into Claude, then paste the JSON response below';
-    el.querySelector('#gen-btn').style.background = '#666';
-    el.querySelector('#gen-btn').style.cursor = 'default';
-  });
-}
-
-function renderFromPaste() {
-  const raw = document.getElementById('json-input').value.trim();
+async function generate() {
+  const btn = document.getElementById('gen-btn');
+  btn.disabled = true;
+  btn.textContent = 'Generating...';
+  document.getElementById('loader').classList.add('show');
   document.getElementById('error-msg').classList.remove('show');
-  renderResult(raw);
+  document.getElementById('result').classList.remove('show');
+
+  try {
+    const res = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: buildPrompt() })
+    });
+    const data = await res.json();
+    if (!data.result) throw new Error('No result');
+    renderResult(data.result);
+  } catch(e) {
+    document.getElementById('loader').classList.remove('show');
+    document.getElementById('error-msg').classList.add('show');
+    btn.disabled = false;
+    btn.textContent = 'Try again';
+  }
 }
 
 function renderResult(raw) {
@@ -582,50 +274,38 @@ function renderResult(raw) {
   try {
     const clean = raw.replace(/```json|```/g, '').trim();
     const d = JSON.parse(clean);
-
     const colorMap = {
-      amber: { bg: '#FAEEDA', border: '#EF9F27', text: '#412402', badgeBg: '#EF9F27', badgeText: '#412402' },
-      purple: { bg: '#EEEDFE', border: '#AFA9EC', text: '#26215C', badgeBg: '#7F77DD', badgeText: '#EEEDFE' },
-      teal: { bg: '#E1F5EE', border: '#5DCAA5', text: '#04342C', badgeBg: '#1D9E75', badgeText: '#E1F5EE' },
-      pink: { bg: '#FBEAF0', border: '#ED93B1', text: '#4B1528', badgeBg: '#D4537E', badgeText: '#FBEAF0' }
+      amber: { bg:'#FAEEDA', border:'#EF9F27', text:'#412402', badgeBg:'#EF9F27', badgeText:'#412402' },
+      purple: { bg:'#EEEDFE', border:'#AFA9EC', text:'#26215C', badgeBg:'#7F77DD', badgeText:'#EEEDFE' },
+      teal: { bg:'#E1F5EE', border:'#5DCAA5', text:'#04342C', badgeBg:'#1D9E75', badgeText:'#E1F5EE' },
+      pink: { bg:'#FBEAF0', border:'#ED93B1', text:'#4B1528', badgeBg:'#D4537E', badgeText:'#FBEAF0' }
     };
     const c = colorMap[d.color] || colorMap.amber;
-
     const banner = document.getElementById('r-banner');
-    banner.style.background = c.bg;
-    banner.style.borderColor = c.border;
-
+    banner.style.background = c.bg; banner.style.borderColor = c.border;
     const badge = document.getElementById('r-badge');
-    badge.style.background = c.badgeBg;
-    badge.style.color = c.badgeText;
-    badge.textContent = d.badge;
-
+    badge.style.background = c.badgeBg; badge.style.color = c.badgeText; badge.textContent = d.badge;
     document.getElementById('r-identity').style.color = c.text;
     document.getElementById('r-identity').textContent = d.identity;
     document.getElementById('r-why').style.color = c.text;
     document.getElementById('r-why').textContent = d.why;
-
     document.getElementById('r-artists').innerHTML = d.artists.map(a => `
       <div class="artist-card">
         <div class="artist-name">${a.name}</div>
         <div class="artist-why">${a.why}</div>
         <a class="artist-spot" href="https://open.spotify.com/search/${encodeURIComponent(a.search)}" target="_blank">Find on Spotify ↗</a>
       </div>`).join('');
-
     document.getElementById('r-pre-bpm').textContent = d.tempo.pre.bpm;
     document.getElementById('r-pre-desc').textContent = d.tempo.pre.desc;
     document.getElementById('r-peak-bpm').textContent = d.tempo.peak.bpm;
     document.getElementById('r-peak-desc').textContent = d.tempo.peak.desc;
     document.getElementById('r-late-bpm').textContent = d.tempo.late.bpm;
     document.getElementById('r-late-desc').textContent = d.tempo.late.desc;
-
     document.getElementById('r-avoid').innerHTML = d.avoid.map(a => `<div class="avoid-tag">${a}</div>`).join('');
     document.getElementById('r-spotify').href = `https://open.spotify.com/search/${encodeURIComponent(d.spotifyQuery)}`;
-
     document.getElementById('result').classList.add('show');
     setTimeout(() => document.getElementById('result').scrollIntoView({ behavior: 'smooth' }), 100);
-  } catch (e) {
-    document.getElementById('loader').classList.remove('show');
+  } catch(e) {
     document.getElementById('error-msg').classList.add('show');
   }
 }
