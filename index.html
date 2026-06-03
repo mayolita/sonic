@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonic* — music that fits the room</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#F5F0E8;
@@ -58,7 +58,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .phone-string{width:2px;height:80px;background:var(--black);opacity:0.4}
 .phone-img{width:90px}
 .phone-img img{width:100%;object-fit:contain;filter:drop-shadow(2px 4px 12px rgba(0,0,0,0.2))}
-@keyframes hangSway{0%,100%{transform:translateX(-50%) rotate(-3deg)}50%{transform:translateX(-50%) rotate(3deg)}}
+@keyframes hangSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 
 /* SCRIBBLES */
 .scribble{position:absolute;pointer-events:none;opacity:0.14}
@@ -87,7 +87,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .landing-wordmark{font-family:'Playfair Display',serif;font-size:96px;font-weight:900;font-style:italic;letter-spacing:-5px;line-height:0.95;color:var(--black);position:relative;display:inline-block;margin-bottom:4px}
 .landing-wordmark em{font-style:normal;color:var(--red)}
 .wm-bg{position:absolute;inset:-6px -20px;background:var(--yellow);z-index:-1;transform:rotate(-1.5deg)}
-.landing-sub{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(15,15,15,0.45);margin-top:14px;margin-bottom:2rem}
+.landing-sub{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(15,15,15,0.6);margin-top:8px;margin-bottom:2rem;letter-spacing:0.02em}
 .start-btn{padding:16px 44px;background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;border:2.5px solid var(--black);border-radius:100px;cursor:pointer;transition:all 0.15s;box-shadow:4px 4px 0 var(--black);text-transform:uppercase;display:inline-block}
 .start-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black)}
 .start-btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--black)}
@@ -101,9 +101,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 
 /* QUESTION SCREEN */
 #questionScreen{display:none;min-height:100vh}
-#questionScreen.active{display:grid;grid-template-columns:1fr 1fr}
-.q-left{padding:3rem 3rem 3rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--cream);position:relative;min-height:100vh;overflow-y:auto}
-.q-right{background:#1A0A2E;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:100vh}
+#questionScreen.active{display:block}
+.q-left{padding:3rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--cream);position:relative;min-height:100vh;overflow-y:auto;max-width:640px;margin:0 auto}
+.q-right{display:none}
 .progress-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(15,15,15,0.08);z-index:10}
 .progress-fill{height:100%;background:var(--red);transition:width 0.4s ease}
 .q-step-ind{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(15,15,15,0.35);margin-bottom:12px}
@@ -206,22 +206,9 @@ textarea::placeholder{opacity:0.3}
 
 <!-- LOADER -->
 <div id="loader">
-  <div style="position:relative;width:100%;max-width:340px;height:420px;margin:0 auto">
-    <!-- martini glass fixed at bottom -->
-    <div id="loaderMartini" style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:160px;opacity:0;transition:opacity 0.5s">
-      <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="20,10 140,10 80,80" fill="none" stroke="#0F0F0F" stroke-width="3" stroke-linejoin="round"/>
-        <line x1="80" y1="80" x2="80" y2="120" stroke="#0F0F0F" stroke-width="3"/>
-        <line x1="50" y1="120" x2="110" y2="120" stroke="#0F0F0F" stroke-width="3"/>
-        <polygon points="22,12 138,12 80,76" fill="#C8A87A" opacity="0.5"/>
-        <circle cx="90" cy="30" r="5" fill="#4CAF50"/>
-        <circle cx="100" cy="28" r="5" fill="#4CAF50"/>
-        <circle cx="95" cy="25" r="5" fill="#4CAF50"/>
-        <line x1="95" y1="15" x2="95" y2="35" stroke="#8B6914" stroke-width="1.5"/>
-      </svg>
-    </div>
-    <!-- diving lady animates downward -->
-    <div id="loaderDiver" style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;transition:top 3s cubic-bezier(0.4,0,0.6,1)">
+  <!-- diving lady animates downward into martini — whole image moves -->
+  <div style="position:relative;width:260px;height:380px;margin:0 auto;overflow:hidden">
+    <div id="loaderDiver" style="position:absolute;top:-60px;left:0;width:100%;transition:top 3.2s cubic-bezier(0.4,0,0.8,1)">
       <img src="dive.png" style="width:100%;object-fit:contain"/>
     </div>
   </div>
@@ -289,7 +276,7 @@ textarea::placeholder{opacity:0.3}
     <!-- TOP RIGHT: sushi large -->
     <div class="obj" style="width:220px;top:0%;right:0%;transform:rotate(8deg)"><img src="png 5.png" alt="sushi"/></div>
     <!-- MID LEFT: baguettes -->
-    <div class="obj" style="width:120px;top:40%;left:0%;transform:rotate(-22deg)"><img src="png 3.png" alt="baguettes"/></div>
+    <div class="obj" style="width:120px;top:40%;left:0%;transform:rotate(-22deg)"><img src="3.png" alt="baguettes"/></div>
     <!-- MID RIGHT: raspberry -->
     <div class="obj" style="width:160px;top:35%;right:0%;transform:rotate(5deg)"><img src="png 1.png" alt="raspberry"/></div>
     <!-- BOTTOM LEFT: gramophone large anchor -->
@@ -405,10 +392,8 @@ let prog=0;
 const fillEl=document.getElementById('chalkFill');
 const pctEl=document.getElementById('loaderPct');
 const diver=document.getElementById('loaderDiver');
-const martini=document.getElementById('loaderMartini');
 
-// show martini after a beat
-setTimeout(()=>{ martini.style.opacity='1'; },400);
+
 
 const barColors=[
   {at:0,   color:'#FFD166'},
@@ -436,8 +421,8 @@ const pi=setInterval(()=>{
   pctEl.style.color=barCol;
   
   // animate diver downward as progress increases — starts at top, moves toward martini
-  const maxTop=220; // px from top where she gets close to martini
-  const diverTop=Math.min((prog/100)*maxTop, maxTop);
+  // animate from -60px to 80px — diving into the martini
+  const diverTop=-60 + (prog/100)*140;
   diver.style.top=diverTop+'px';
   
 },60);
