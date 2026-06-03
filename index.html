@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sonic* — music identity for restaurants</title>
+<title>Sonic* — music that fits the room</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -24,9 +24,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .chalk-trail{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);animation:fadeTrail 0.5s ease forwards}
 @keyframes fadeTrail{0%{opacity:0.9;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(0.1)}}
 
+/* LOADER */
 #loader{position:fixed;inset:0;background:var(--cream);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;overflow:hidden}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
-.loader-diving{width:260px;height:380px;position:relative;margin-bottom:-30px}
+.loader-diving{width:240px;height:360px;margin-bottom:-20px}
 .loader-diving img{width:100%;height:100%;object-fit:contain}
 .loader-wordmark{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;font-style:italic;letter-spacing:-3px;color:var(--black)}
 .loader-wordmark em{font-style:normal;color:var(--red)}
@@ -37,6 +38,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 #app{opacity:0;transition:opacity 0.8s ease;min-height:100vh}
 #app.show{opacity:1}
 
+/* PLAYER */
 .player-bar{position:fixed;top:1.2rem;right:1.5rem;z-index:500;display:flex;align-items:center;gap:8px;background:var(--black);color:var(--cream);padding:8px 16px;border-radius:100px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;user-select:none}
 .player-bar:hover{background:#222}
 .player-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.5s ease infinite}
@@ -48,20 +50,39 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .player-bar.paused .pw{animation:none;height:4px!important}
 .player-bar.paused .player-dot{animation:none;opacity:0.3}
 
+/* LANDING */
 #landing{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--cream)}
 
-.scribble{position:absolute;pointer-events:none;opacity:0.15}
+/* PHONE HANGING FROM TOP */
+.phone-hang{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;animation:hangSway 4s ease-in-out infinite;transform-origin:top center}
+.phone-string{width:2px;height:80px;background:var(--black);opacity:0.4}
+.phone-img{width:90px}
+.phone-img img{width:100%;object-fit:contain;filter:drop-shadow(2px 4px 12px rgba(0,0,0,0.2))}
+@keyframes hangSway{0%,100%{transform:translateX(-50%) rotate(-3deg)}50%{transform:translateX(-50%) rotate(3deg)}}
+
+/* SCRIBBLES */
+.scribble{position:absolute;pointer-events:none;opacity:0.14}
+
+/* HANDWRITTEN NOTES */
+.hw-note{position:absolute;pointer-events:none;font-family:'Space Mono',monospace;font-size:11px;color:var(--black);opacity:0.18;transform:rotate(-8deg);line-height:1.6;letter-spacing:0.02em}
+.hw-note.r1{top:22%;left:3%;transform:rotate(-12deg)}
+.hw-note.r2{bottom:28%;right:2%;transform:rotate(8deg)}
+.hw-note.r3{top:45%;left:2%;transform:rotate(-5deg)}
+.hw-circle{position:absolute;pointer-events:none;opacity:0.12}
+
+/* COLLAGE OBJECTS */
 .obj{position:absolute;pointer-events:none;user-select:none}
-.obj img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(4px 8px 20px rgba(0,0,0,0.18))}
-.obj-gramophone{width:220px;bottom:8%;left:2%;animation:f1 7s ease-in-out infinite}
-.obj-baguettes{width:150px;top:5%;left:8%;animation:f2 6s ease-in-out infinite;transform:rotate(-15deg)}
-.obj-sushi{width:175px;top:4%;right:4%;animation:f3 8s ease-in-out infinite;transform:rotate(12deg)}
-.obj-raspberry{width:145px;bottom:12%;right:3%;animation:f4 5.5s ease-in-out infinite;transform:rotate(-8deg)}
+.obj img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(4px 8px 20px rgba(0,0,0,0.15))}
+.obj-gramophone{width:200px;bottom:8%;left:1%}
+.obj-sushi{width:170px;top:12%;right:3%}
+.obj-raspberry{width:140px;bottom:14%;right:2%}
+.obj-baguettes{width:140px;top:8%;left:6%}
 @keyframes f1{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(-1deg)}}
 @keyframes f2{0%,100%{transform:translateY(0) rotate(-15deg)}50%{transform:translateY(-14px) rotate(-12deg)}}
 @keyframes f3{0%,100%{transform:translateY(0) rotate(12deg)}50%{transform:translateY(-20px) rotate(15deg)}}
 @keyframes f4{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-12px) rotate(-5deg)}}
 
+/* LANDING CENTER */
 .landing-center{position:relative;z-index:10;text-align:center;padding:2rem;max-width:500px}
 .landing-wordmark{font-family:'Playfair Display',serif;font-size:96px;font-weight:900;font-style:italic;letter-spacing:-5px;line-height:0.95;color:var(--black);position:relative;display:inline-block;margin-bottom:4px}
 .landing-wordmark em{font-style:normal;color:var(--red)}
@@ -71,16 +92,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .start-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black)}
 .start-btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--black)}
 
+/* MARQUEE */
 .marquee-wrap{position:absolute;bottom:0;left:0;right:0;overflow:hidden;border-top:2.5px solid var(--black);padding:10px 0;background:var(--yellow)}
 .marquee-track{display:flex;animation:marquee 40s linear infinite;white-space:nowrap}
 .marquee-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;font-weight:700;color:var(--black);padding:0 2rem;flex-shrink:0}
 .marquee-dot{color:var(--red);font-style:normal}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* QUESTION SCREEN */
 #questionScreen{display:none;min-height:100vh}
 #questionScreen.active{display:grid;grid-template-columns:1fr 1fr}
 .q-left{padding:3rem 3rem 3rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--cream);position:relative;min-height:100vh;overflow-y:auto}
-.q-right{background:var(--black);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.q-right{background:#1A0A2E;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:100vh}
 .progress-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(15,15,15,0.08);z-index:10}
 .progress-fill{height:100%;background:var(--red);transition:width 0.4s ease}
 .q-step-ind{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(15,15,15,0.35);margin-bottom:12px}
@@ -89,11 +112,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 
 /* STAGGERED CHIPS */
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.chips.staggered{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:8px}
-.chips.staggered .chip:nth-child(3n+2){margin-top:6px}
-.chips.staggered .chip:nth-child(3n+3){margin-top:12px}
 
-.chip{padding:8px 18px;border-radius:100px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;border:2px solid var(--black);background:transparent;color:var(--black);transition:all 0.12s;user-select:none;letter-spacing:0.02em;white-space:nowrap}
+.chip{padding:10px 0;border-radius:100px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;border:2px solid var(--black);background:transparent;color:var(--black);transition:all 0.12s;user-select:none;letter-spacing:0.02em;text-align:center;width:148px}
 .chip:hover{background:var(--black);color:var(--cream);transform:translateY(-2px)}
 .chip.on{background:var(--black);color:var(--cream)}
 .chip.c-amber.on{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
@@ -161,33 +181,60 @@ textarea::placeholder{opacity:0.3}
 .restart-btn{width:100%;padding:13px;border-radius:14px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;background:transparent;color:rgba(15,15,15,0.4);border:2px solid rgba(15,15,15,0.15);transition:all 0.12s;text-transform:uppercase;letter-spacing:0.05em}
 .restart-btn:hover{color:var(--black);border-color:var(--black)}
 
-.rp-vinyl{position:absolute;width:260px;height:260px;animation:spin 10s linear infinite}
-.rp-scribble{position:absolute;pointer-events:none;opacity:0.2}
+/* RIGHT PANEL - collage on dark */
+.rp-obj{position:absolute;pointer-events:none}
+.rp-obj img{width:100%;object-fit:contain;filter:drop-shadow(4px 8px 20px rgba(0,0,0,0.4))}
+.rp-sushi{width:200px;top:10%;right:5%}
+.rp-gramophone{width:180px;bottom:8%;left:3%}
+.rp-raspberry{width:130px;top:8%;left:8%}
+
+.rp-scribble{position:absolute;pointer-events:none;opacity:0.15}
 
 @media(max-width:768px){
   #questionScreen.active{grid-template-columns:1fr}
   .q-right{display:none}
   .q-left{padding:2rem 1.5rem}
   .landing-wordmark{font-size:60px}
-  .chips.staggered{grid-template-columns:repeat(2,auto)}
 }
 </style>
 </head>
 <body>
-
 <div class="cursor-dot" id="cursorDot"></div>
-
 <audio id="bgMusic" loop preload="auto">
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
 </audio>
 
+<!-- LOADER -->
 <div id="loader">
-  <div class="loader-diving"><img src="diving.jpg" alt=""/></div>
-  <div class="loader-wordmark">sonic<em>*</em></div>
-  <div class="loader-tagline">music identity for restaurants</div>
-  <div class="chalk-progress"><div class="chalk-fill" id="chalkFill"></div></div>
+  <div style="position:relative;width:100%;max-width:340px;height:420px;margin:0 auto">
+    <!-- martini glass fixed at bottom -->
+    <div id="loaderMartini" style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:160px;opacity:0;transition:opacity 0.5s">
+      <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,10 140,10 80,80" fill="none" stroke="#0F0F0F" stroke-width="3" stroke-linejoin="round"/>
+        <line x1="80" y1="80" x2="80" y2="120" stroke="#0F0F0F" stroke-width="3"/>
+        <line x1="50" y1="120" x2="110" y2="120" stroke="#0F0F0F" stroke-width="3"/>
+        <polygon points="22,12 138,12 80,76" fill="#C8A87A" opacity="0.5"/>
+        <circle cx="90" cy="30" r="5" fill="#4CAF50"/>
+        <circle cx="100" cy="28" r="5" fill="#4CAF50"/>
+        <circle cx="95" cy="25" r="5" fill="#4CAF50"/>
+        <line x1="95" y1="15" x2="95" y2="35" stroke="#8B6914" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <!-- diving lady animates downward -->
+    <div id="loaderDiver" style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;transition:top 3s cubic-bezier(0.4,0,0.6,1)">
+      <img src="dive.png" style="width:100%;object-fit:contain"/>
+    </div>
+  </div>
+  <div class="loader-wordmark" style="margin-top:1rem">sonic<em>*</em></div>
+  <div class="loader-tagline">music that fits the room</div>
+  <!-- chunky bar with % inside -->
+  <div style="width:280px;height:32px;background:rgba(15,15,15,0.1);border-radius:100px;margin-top:1.2rem;border:2.5px solid #0F0F0F;overflow:hidden;position:relative">
+    <div id="chalkFill" style="height:100%;width:0%;border-radius:100px;transition:width 0.08s linear,background 0.3s;position:relative"></div>
+    <div id="loaderPct" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Space Mono,monospace;font-size:12px;font-weight:700;color:#0F0F0F;letter-spacing:0.05em;mix-blend-mode:multiply">0%</div>
+  </div>
 </div>
 
+<!-- PLAYER -->
 <div class="player-bar" id="playerBar" onclick="toggleMusic()">
   <div class="player-dot"></div>
   <div class="player-waves">
@@ -197,39 +244,73 @@ textarea::placeholder{opacity:0.3}
 </div>
 
 <div id="app">
+  <!-- LANDING -->
   <div id="landing">
-    <svg class="scribble" style="top:8%;left:1%;width:200px;height:130px" viewBox="0 0 200 130">
-      <path d="M10 65 Q50 10 100 40 Q150 70 190 20" stroke="#E63946" stroke-width="2" fill="none"/>
-      <path d="M20 85 Q60 50 110 70 Q160 90 190 60" stroke="#E63946" stroke-width="1.5" fill="none"/>
-    </svg>
-    <svg class="scribble" style="top:6%;right:1%;width:160px;height:100px" viewBox="0 0 160 100">
-      <path d="M10 50 Q40 10 80 35 Q120 60 150 20" stroke="#9B5DE5" stroke-width="2" fill="none"/>
-      <path d="M15 70 Q50 40 90 60 Q130 80 155 50" stroke="#9B5DE5" stroke-width="1.5" fill="none"/>
-    </svg>
-    <svg class="scribble" style="bottom:18%;left:18%;width:120px;height:80px" viewBox="0 0 120 80">
-      <circle cx="60" cy="40" r="35" stroke="#FFD166" stroke-width="2" fill="none"/>
-      <circle cx="60" cy="40" r="22" stroke="#FFD166" stroke-width="1.5" fill="none"/>
-    </svg>
-    <svg class="scribble" style="bottom:16%;right:18%;width:130px;height:80px" viewBox="0 0 130 80">
-      <path d="M10 40 Q32 10 65 40 Q98 70 120 40" stroke="#06D6A0" stroke-width="2" fill="none"/>
-    </svg>
 
-    <div class="obj obj-gramophone"><img src="gramophone.jpg" alt="gramophone"/></div>
-    <div class="obj obj-baguettes"><img src="baguettes.png" alt="baguettes"/></div>
-    <div class="obj obj-sushi"><img src="sushi.jpg" alt="sushi"/></div>
-    <div class="obj obj-raspberry"><img src="raspberry.jpg" alt="raspberry"/></div>
-
-    <div class="landing-center">
-      <div class="landing-wordmark"><div class="wm-bg"></div>sonic<em>*</em></div>
-      <div class="landing-sub">music identity for restaurants</div>
-      <button class="start-btn" onclick="startApp()">Get your sonic brief →</button>
+    <!-- PHONE HANGING FROM TOP -->
+    <div class="phone-hang">
+      <div class="phone-string"></div>
+      <div class="phone-img"><img src="png 6 (phone).png" alt="phone"/></div>
     </div>
 
+    <!-- SCATTERED STARS -->
+    <div style="position:absolute;inset:0;pointer-events:none;z-index:1">
+      <!-- large stars -->
+      <div style="position:absolute;top:8%;left:18%;font-size:32px;color:#E63946;opacity:0.5">✦</div>
+      <div style="position:absolute;top:12%;right:22%;font-size:28px;color:#9B5DE5;opacity:0.45">✦</div>
+      <div style="position:absolute;top:48%;left:22%;font-size:36px;color:#FFD166;opacity:0.5">✦</div>
+      <div style="position:absolute;top:55%;right:20%;font-size:30px;color:#06D6A0;opacity:0.4">✦</div>
+      <div style="position:absolute;bottom:22%;left:28%;font-size:24px;color:#E63946;opacity:0.4">✦</div>
+      <div style="position:absolute;bottom:18%;right:28%;font-size:34px;color:#9B5DE5;opacity:0.45">✦</div>
+      <!-- medium stars -->
+      <div style="position:absolute;top:25%;left:14%;font-size:18px;color:#FF6B35;opacity:0.35">✦</div>
+      <div style="position:absolute;top:30%;right:14%;font-size:16px;color:#FFD166;opacity:0.4">✦</div>
+      <div style="position:absolute;top:70%;left:16%;font-size:20px;color:#06D6A0;opacity:0.35">✦</div>
+      <div style="position:absolute;top:65%;right:16%;font-size:18px;color:#E63946;opacity:0.3">✦</div>
+      <div style="position:absolute;top:18%;left:32%;font-size:14px;color:#9B5DE5;opacity:0.3">✦</div>
+      <div style="position:absolute;top:80%;right:30%;font-size:16px;color:#FF6B35;opacity:0.35">✦</div>
+      <!-- small stars -->
+      <div style="position:absolute;top:6%;left:28%;font-size:10px;color:#E63946;opacity:0.3">✦</div>
+      <div style="position:absolute;top:40%;left:28%;font-size:8px;color:#FFD166;opacity:0.35">✦</div>
+      <div style="position:absolute;top:40%;right:26%;font-size:10px;color:#9B5DE5;opacity:0.3">✦</div>
+      <div style="position:absolute;bottom:30%;left:20%;font-size:8px;color:#06D6A0;opacity:0.3">✦</div>
+      <div style="position:absolute;bottom:28%;right:22%;font-size:10px;color:#E63946;opacity:0.25">✦</div>
+      <div style="position:absolute;top:85%;left:32%;font-size:8px;color:#FFD166;opacity:0.3">✦</div>
+      <!-- four pointed stars mixed in -->
+      <div style="position:absolute;top:20%;left:24%;font-size:22px;color:#FFD166;opacity:0.3">★</div>
+      <div style="position:absolute;top:60%;right:24%;font-size:18px;color:#E63946;opacity:0.25">★</div>
+      <div style="position:absolute;bottom:35%;left:26%;font-size:14px;color:#9B5DE5;opacity:0.25">★</div>
+      <div style="position:absolute;top:75%;right:26%;font-size:20px;color:#06D6A0;opacity:0.3">★</div>
+    </div>
+
+
+    <!-- TOP LEFT: phone -->
+    <div class="obj" style="width:85px;top:2%;left:2%;transform:rotate(-10deg)"><img src="png 6 (phone).png" alt="phone"/></div>
+    <!-- TOP RIGHT: sushi large -->
+    <div class="obj" style="width:220px;top:0%;right:0%;transform:rotate(8deg)"><img src="png 5.png" alt="sushi"/></div>
+    <!-- MID LEFT: baguettes -->
+    <div class="obj" style="width:120px;top:40%;left:0%;transform:rotate(-22deg)"><img src="png 3.png" alt="baguettes"/></div>
+    <!-- MID RIGHT: raspberry -->
+    <div class="obj" style="width:160px;top:35%;right:0%;transform:rotate(5deg)"><img src="png 1.png" alt="raspberry"/></div>
+    <!-- BOTTOM LEFT: gramophone large anchor -->
+    <div class="obj" style="width:250px;bottom:5%;left:-1%;transform:rotate(-3deg)"><img src="png 7.png" alt="gramophone"/></div>
+    <!-- BOTTOM RIGHT: red boots -->
+    <div class="obj" style="width:145px;bottom:3%;right:1%;transform:rotate(7deg)"><img src="png 4.png" alt="boots"/></div>
+
+    <!-- CENTER -->
+    <div class="landing-center">
+      <div class="landing-wordmark"><div class="wm-bg"></div>sonic<em>*</em></div>
+      <div class="landing-sub">music that fits the room</div>
+      <button class="start-btn" onclick="startApp()">Let's go →</button>
+    </div>
+
+    <!-- MARQUEE -->
     <div class="marquee-wrap">
       <div class="marquee-track" id="marquee"></div>
     </div>
   </div>
 
+  <!-- QUESTION SCREEN -->
   <div id="questionScreen">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div class="q-left" id="qLeft">
@@ -260,52 +341,27 @@ textarea::placeholder{opacity:0.3}
       </div>
     </div>
 
+    <!-- RIGHT PANEL — collage objects on dark background -->
     <div class="q-right">
-      <svg class="rp-scribble" style="top:5%;left:5%;width:140px" viewBox="0 0 140 80">
-        <path d="M10 40 Q40 10 70 35 Q100 60 130 25" stroke="#9B5DE5" stroke-width="1.5" fill="none"/>
-        <path d="M15 60 Q45 35 80 55 Q110 70 135 45" stroke="#9B5DE5" stroke-width="1" fill="none"/>
+      <svg class="rp-scribble" style="top:5%;left:5%;width:150px;height:80px" viewBox="0 0 150 80">
+        <path d="M10 40 Q40 8 75 35 Q110 62 140 22" stroke="#9B5DE5" stroke-width="1.5" fill="none"/>
+        <path d="M15 60 Q48 32 85 55 Q118 75 142 48" stroke="#FFD166" stroke-width="1" fill="none"/>
       </svg>
-      <svg class="rp-scribble" style="bottom:8%;right:5%;width:120px" viewBox="0 0 120 70">
-        <path d="M10 35 Q35 5 60 35 Q85 65 110 35" stroke="#FFD166" stroke-width="1.5" fill="none"/>
+      <svg class="rp-scribble" style="bottom:8%;right:5%;width:130px;height:70px" viewBox="0 0 130 70">
+        <path d="M10 35 Q35 5 65 35 Q95 65 120 35" stroke="#06D6A0" stroke-width="1.5" fill="none"/>
       </svg>
-
-      <svg class="rp-vinyl" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="130" cy="130" r="120" fill="#111"/>
-        <circle cx="130" cy="130" r="112" fill="none" stroke="#1a1a1a" stroke-width="2"/>
-        <circle cx="130" cy="130" r="100" fill="none" stroke="#222" stroke-width="1.5"/>
-        <circle cx="130" cy="130" r="88" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
-        <circle cx="130" cy="130" r="76" fill="none" stroke="#222" stroke-width="1"/>
-        <circle cx="130" cy="130" r="64" fill="none" stroke="#1a1a1a" stroke-width="1"/>
-        <circle cx="130" cy="130" r="52" fill="#E63946"/>
-        <circle cx="130" cy="130" r="44" fill="#C42535"/>
-        <rect x="110" y="127" width="40" height="3" rx="1.5" fill="#fff" opacity="0.5"/>
-        <rect x="116" y="134" width="28" height="2.5" rx="1" fill="#fff" opacity="0.35"/>
-        <rect x="114" y="120" width="24" height="2" rx="1" fill="#fff" opacity="0.25"/>
-        <circle cx="130" cy="130" r="7" fill="#0F0F0F"/>
+      <svg class="rp-scribble" style="top:40%;right:3%;width:100px;height:60px" viewBox="0 0 100 60">
+        <path d="M5 30 Q28 5 50 30 Q72 55 95 30" stroke="#E63946" stroke-width="1.5" fill="none"/>
       </svg>
 
-      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;pointer-events:none">
-        <svg viewBox="0 0 400 400" style="width:100%;height:100%;overflow:visible">
-          <circle cx="200" cy="200" r="135" fill="none" stroke="#9B5DE5" stroke-width="1.5">
-            <animate attributeName="r" from="130" to="195" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.6" to="0" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="200" cy="200" r="135" fill="none" stroke="#FFD166" stroke-width="1.5">
-            <animate attributeName="r" from="130" to="195" dur="3s" begin="0.75s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.5" to="0" dur="3s" begin="0.75s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="200" cy="200" r="135" fill="none" stroke="#06D6A0" stroke-width="1.5">
-            <animate attributeName="r" from="130" to="195" dur="3s" begin="1.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.4" to="0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="200" cy="200" r="135" fill="none" stroke="#E63946" stroke-width="1.5">
-            <animate attributeName="r" from="130" to="195" dur="3s" begin="2.25s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" from="0.4" to="0" dur="3s" begin="2.25s" repeatCount="indefinite"/>
-          </circle>
-        </svg>
-      </div>
+      <!-- floating collage objects on dark -->
+      <div class="rp-obj rp-sushi"><img src="png 5.png" alt="sushi"/></div>
+      <div class="rp-obj rp-gramophone"><img src="png 7.png" alt="gramophone"/></div>
+      <div class="rp-obj rp-raspberry"><img src="png 1.png" alt="raspberry"/></div>
 
-      <div style="position:absolute;bottom:1.5rem;font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,0.15);letter-spacing:4px;text-transform:uppercase">SONIC * VOL.1</div>
+      <!-- handwritten text on dark -->
+      <div style="position:absolute;bottom:30%;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,0.15);letter-spacing:0.15em;text-transform:uppercase;text-align:center;white-space:nowrap">what does your space sound like?</div>
+      <div style="position:absolute;bottom:1.5rem;font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,0.1);letter-spacing:4px;text-transform:uppercase">SONIC * VOL.1</div>
     </div>
   </div>
 </div>
@@ -321,35 +377,24 @@ document.addEventListener('mousemove',e=>{
   if(now-lastTrail>25){
     lastTrail=now;
     if(Math.hypot(e.clientX-lastX,e.clientY-lastY)>6){
-      const t=document.createElement('div');
-      t.className='chalk-trail';
+      const t=document.createElement('div');t.className='chalk-trail';
       const sz=Math.random()*12+5,col=trailColors[Math.floor(Math.random()*trailColors.length)],rot=Math.random()*360,sq=Math.random()>0.6;
       t.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;width:${sz}px;height:${sz}px;background:${col};border-radius:${sq?'20%':'50%'};transform:translate(-50%,-50%) rotate(${rot}deg)`;
-      document.body.appendChild(t);
-      setTimeout(()=>t.remove(),600);
+      document.body.appendChild(t);setTimeout(()=>t.remove(),600);
       lastX=e.clientX;lastY=e.clientY;
     }
   }
 });
 
-// MARQUEE — culturally specific facts
+// MARQUEE
 const marqItems=[
-  'Tokyo has over 300 jazz kissa — bars where talking during music is considered rude',
-  '✦',
-  'Studies show minor keys make wine taste more bitter',
-  '✦',
-  'Noma changes its entire playlist with every seasonal menu',
-  '✦',
-  'The correct BPM for a Michelin starred tasting menu is apparently 58',
-  '✦',
-  'Loud music doesn\'t just change the vibe — it changes what people order',
-  '✦',
-  'The first elevator music was played by live musicians in Otis elevators',
-  '✦',
-  'Tempo above 120 BPM makes people eat 23% faster',
-  '✦',
-  'Bill Evans refused to play if restaurant noise exceeded his piano',
-  '✦',
+  'Tokyo has over 300 jazz kissa — bars where talking during music is considered rude','✦',
+  'Studies show minor keys make wine taste more bitter','✦',
+  'Noma changes its entire playlist with every seasonal menu','✦',
+  'Tempo above 120 BPM makes people eat 23% faster','✦',
+  'Bill Evans refused to play if restaurant noise exceeded his piano','✦',
+  'The first elevator music was played by live musicians in Otis elevators','✦',
+  'Loud music doesn\'t just change the vibe — it changes what people order','✦',
 ];
 const track=document.getElementById('marquee');
 const doubled=[...marqItems,...marqItems];
@@ -358,7 +403,45 @@ track.innerHTML=doubled.map(i=>i==='✦'?`<span class="marquee-item"><span class
 // LOADER
 let prog=0;
 const fillEl=document.getElementById('chalkFill');
-const pi=setInterval(()=>{prog+=Math.random()*2.5+0.5;if(prog>=100){prog=100;clearInterval(pi);}fillEl.style.width=prog+'%';},60);
+const pctEl=document.getElementById('loaderPct');
+const diver=document.getElementById('loaderDiver');
+const martini=document.getElementById('loaderMartini');
+
+// show martini after a beat
+setTimeout(()=>{ martini.style.opacity='1'; },400);
+
+const barColors=[
+  {at:0,   color:'#FFD166'},
+  {at:25,  color:'#06D6A0'},
+  {at:50,  color:'#9B5DE5'},
+  {at:75,  color:'#E63946'},
+  {at:90,  color:'#FF6B35'},
+];
+const pctColors=['#E63946','#9B5DE5','#06D6A0','#FFD166','#FF6B35'];
+
+const pi=setInterval(()=>{
+  prog+=Math.random()*2.5+0.5;
+  if(prog>=100){prog=100;clearInterval(pi);}
+  
+  // update bar width
+  fillEl.style.width=prog+'%';
+  
+  // update bar color
+  let barCol='#FFD166';
+  for(let i=barColors.length-1;i>=0;i--){if(prog>=barColors[i].at){barCol=barColors[i].color;break;}}
+  fillEl.style.background=barCol;
+  
+  // update percentage text
+  pctEl.textContent=Math.round(prog)+'%';
+  pctEl.style.color=barCol;
+  
+  // animate diver downward as progress increases — starts at top, moves toward martini
+  const maxTop=220; // px from top where she gets close to martini
+  const diverTop=Math.min((prog/100)*maxTop, maxTop);
+  diver.style.top=diverTop+'px';
+  
+},60);
+
 setTimeout(()=>{
   document.getElementById('loader').classList.add('hide');
   document.getElementById('app').classList.add('show');
@@ -371,11 +454,59 @@ function toggleMusic(){
   else{m.pause();bar.classList.add('paused');lbl.textContent='tap to play';}
 }
 
+function getAudioCtx(){return new(window.AudioContext||window.webkitAudioContext)();}
+
+// Mario coin sound — chip selection
 function playChipSound(){
-  try{const ctx=new(window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.setValueAtTime(600,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(300,ctx.currentTime+0.1);g.gain.setValueAtTime(0.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.12);o.start();o.stop(ctx.currentTime+0.12);}catch(e){}
+  try{
+    const ctx=getAudioCtx();
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type='square';
+    o.connect(g);g.connect(ctx.destination);
+    o.frequency.setValueAtTime(987,ctx.currentTime);
+    o.frequency.setValueAtTime(1318,ctx.currentTime+0.08);
+    g.gain.setValueAtTime(0.12,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.2);
+    o.start();o.stop(ctx.currentTime+0.2);
+  }catch(e){}
 }
+
+// Mario 1-up sound — brief appears
+function playResultSound(){
+  try{
+    const ctx=getAudioCtx();
+    const notes=[523,659,784,1047,659,784,1047,1319];
+    const times=[0,0.08,0.16,0.24,0.32,0.40,0.48,0.56];
+    notes.forEach((freq,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='square';
+      o.connect(g);g.connect(ctx.destination);
+      o.frequency.setValueAtTime(freq,ctx.currentTime+times[i]);
+      g.gain.setValueAtTime(0.1,ctx.currentTime+times[i]);
+      g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+times[i]+0.1);
+      o.start(ctx.currentTime+times[i]);
+      o.stop(ctx.currentTime+times[i]+0.12);
+    });
+  }catch(e){}
+}
+
+// Mario power-up — generate button
 function playGenSound(){
-  try{const ctx=new(window.AudioContext||window.webkitAudioContext)();[0,0.1,0.2].forEach((d,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.setValueAtTime([350,500,700][i],ctx.currentTime+d);g.gain.setValueAtTime(0.1,ctx.currentTime+d);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+d+0.18);o.start(ctx.currentTime+d);o.stop(ctx.currentTime+d+0.2);});}catch(e){}
+  try{
+    const ctx=getAudioCtx();
+    const notes=[261,329,392,523,659,784,1047];
+    const times=[0,0.07,0.14,0.21,0.28,0.35,0.42];
+    notes.forEach((freq,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='square';
+      o.connect(g);g.connect(ctx.destination);
+      o.frequency.setValueAtTime(freq,ctx.currentTime+times[i]);
+      g.gain.setValueAtTime(0.1,ctx.currentTime+times[i]);
+      g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+times[i]+0.09);
+      o.start(ctx.currentTime+times[i]);
+      o.stop(ctx.currentTime+times[i]+0.1);
+    });
+  }catch(e){}
 }
 
 const STEPS=[
@@ -406,14 +537,14 @@ function showStep(i){
   if(s.type==='chips'){
     html=`<div class="q-step-ind">0${i+1} / 06</div><div class="q-text">${s.q}</div>`;
     if(s.multi) html+=`<div class="q-hint">Select all that apply</div>`;
-    html+=`<div class="chips${s.staggered?' staggered':''}" id="chips-${s.id}">`;
+    html+=`<div class="chips" id="chips-${s.id}">`;
     s.options.forEach(o=>html+=`<div class="chip ${s.color}" data-v="${o}">${o}</div>`);
     html+=`</div><button class="next-btn" id="next-${s.id}">Next →</button>`;
   } else if(s.type==='familiarity'){
     html=`<div class="q-step-ind">05 / 06</div><div class="q-text">${s.q}</div>
     <div class="fam-row">
       <div class="fam-card fam-rings" data-v="familiar" id="famRings"><div class="fam-title">Rings a bell</div><div class="fam-desc">Music they already love, just better chosen</div></div>
-      <div class="fam-card fam-surprise" data-v="discovery" id="famSurprise"><div class="fam-title">Surprise me</div><div class="fam-desc">Music that makes them reach for Shazam</div></div>
+      <div class="fam-card fam-surprise" data-v="discovery" id="famSurprise"><div class="fam-title">Surprise me</div><div class="fam-desc">The kind that makes them reach for Shazam</div></div>
     </div>
     <button class="next-btn" id="next-familiarity">Next →</button>`;
   } else {
@@ -520,7 +651,7 @@ function renderResult(raw){
     document.getElementById('rLateDesc').textContent=d.tempo.late.desc;
     document.getElementById('rAvoid').innerHTML=d.avoid.map(a=>`<div class="avoid-tag">${a}</div>`).join('');
     document.getElementById('rSpotify').href=`https://open.spotify.com/search/${encodeURIComponent(d.spotifyQuery+' playlist')}/playlists`;
-    document.getElementById('result').classList.add('show');
+    document.getElementById('result').classList.add('show');playResultSound();
     setTimeout(()=>document.getElementById('result').scrollIntoView({behavior:'smooth'}),100);
   }catch(e){document.getElementById('errorMsg').classList.add('show');}
 }
