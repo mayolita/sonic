@@ -80,10 +80,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .player-bar.paused .player-dot{animation:none;opacity:0.3}
 
 /* LANDING */
-#landing{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#2D1B69}
+#landing{height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#2D1B69;text-align:center}
 
 /* PHONE HANGING FROM TOP */
-.phone-hang{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;animation:hangSway 4s ease-in-out infinite;transform-origin:top center}
+
 .phone-string{width:2px;height:80px;background:var(--black);opacity:0.4}
 .phone-img{width:90px}
 .phone-img img{width:100%;object-fit:contain;filter:drop-shadow(2px 4px 12px rgba(0,0,0,0.2))}
@@ -131,12 +131,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 /* QUESTION SCREEN */
 #questionScreen{display:none;min-height:100vh}
 #questionScreen.active{display:block}
-.q-left{padding:3rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;min-height:100vh;overflow-y:auto;max-width:640px;margin:0 auto;background:transparent}
+.q-left{padding:3rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;min-height:100vh;max-width:640px;margin:0 auto;background:transparent;width:100%}
 .q-right{display:none}
 .progress-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(245,240,232,0.15);z-index:10}
 .progress-fill{height:100%;background:var(--red);transition:width 0.4s ease}
-.q-step-ind{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(15,15,15,0.35);margin-bottom:12px}
-.q-text{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;font-style:italic;color:var(--black);margin-bottom:20px;line-height:1.2}
+.q-step-ind{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.5);margin-bottom:12px}
+.q-text{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;font-style:italic;color:#F5F0E8;margin-bottom:20px;line-height:1.2}
 .q-hint{font-family:'Space Mono',monospace;font-size:9px;color:rgba(15,15,15,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
 
 /* STAGGERED CHIPS */
@@ -183,31 +183,31 @@ textarea::placeholder{opacity:0.3}
 
 .result{display:none;padding-bottom:3rem}
 .result.show{display:block}
-.r-banner{border:2.5px solid var(--black);border-radius:20px;padding:2rem;margin-bottom:1.5rem}
+.r-banner{border:2px solid rgba(245,240,232,0.3);border-radius:20px;padding:2rem;margin-bottom:1.5rem}
 .r-badge{display:inline-block;padding:4px 14px;border-radius:100px;font-family:'Space Mono',monospace;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;border:1.5px solid;margin-bottom:12px}
-.r-identity{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;font-style:italic;line-height:1.2;margin-bottom:12px;letter-spacing:-1px}
-.r-why{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.75;opacity:0.75}
-.sec-label{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:rgba(15,15,15,0.35);margin-bottom:12px;margin-top:2rem}
+.r-identity{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;font-style:italic;line-height:1.2;margin-bottom:12px;letter-spacing:-1px;color:#F5F0E8}
+.r-why{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.75;color:#F5F0E8}
+.sec-label{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:rgba(245,240,232,0.5);margin-bottom:12px;margin-top:2rem}
 .artists{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.artist-card{padding:16px;border:2px solid var(--black);border-radius:14px;background:transparent;transition:all 0.12s}
+.artist-card{padding:16px;border:2px solid rgba(245,240,232,0.3);border-radius:14px;background:rgba(245,240,232,0.05);transition:all 0.12s}
 .artist-card:hover{background:var(--black);color:var(--cream);transform:translateY(-2px);box-shadow:3px 3px 0 rgba(15,15,15,0.3)}
 .artist-card:hover .artist-why{color:rgba(245,240,232,0.6)}
 .artist-card:hover .artist-spot{color:#1DB954}
-.artist-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;font-style:italic;margin-bottom:4px}
-.artist-why{font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(15,15,15,0.6);line-height:1.5;transition:color 0.12s}
+.artist-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;font-style:italic;margin-bottom:4px;color:#F5F0E8}
+.artist-why{font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(245,240,232,0.8);line-height:1.5;transition:color 0.12s}
 .artist-spot{display:inline-block;margin-top:8px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:#1DB954;text-decoration:none}
 .tempo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .tempo-card{padding:14px;border:2px solid var(--black);border-radius:14px;text-align:center}
 .tempo-tag{font-family:'Space Mono',monospace;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;opacity:0.5}
 .tempo-bpm{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;font-style:italic;margin-bottom:3px}
-.tempo-desc{font-family:'DM Sans',sans-serif;font-size:11px;line-height:1.4;opacity:0.6}
+.tempo-desc{font-family:'DM Sans',sans-serif;font-size:11px;line-height:1.4;color:rgba(15,15,15,0.8)}
 .t-pre{background:var(--yellow)}.t-peak{background:var(--teal)}.t-late{background:var(--purple);color:#fff}
 .t-late .tempo-tag,.t-late .tempo-desc{opacity:0.7}
 .avoids{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem}
-.avoid-tag{padding:6px 14px;border-radius:100px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;background:transparent;color:var(--red);border:2px solid var(--red)}
+.avoid-tag{padding:6px 14px;border-radius:100px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;background:rgba(230,57,70,0.15);color:#FF8A8A;border:1.5px solid rgba(230,57,70,0.5)}
 .spotify-btn{display:block;padding:16px 20px;border-radius:14px;background:#1DB954;color:#fff;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;text-decoration:none;text-align:center;margin-bottom:1rem;transition:all 0.15s;border:2px solid var(--black);box-shadow:3px 3px 0 var(--black);letter-spacing:0.03em}
 .spotify-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--black)}
-.restart-btn{width:100%;padding:13px;border-radius:14px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;background:transparent;color:rgba(15,15,15,0.4);border:2px solid rgba(15,15,15,0.15);transition:all 0.12s;text-transform:uppercase;letter-spacing:0.05em}
+.restart-btn{width:100%;padding:13px;border-radius:14px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;cursor:pointer;background:transparent;color:rgba(245,240,232,0.4);border:2px solid rgba(245,240,232,0.15);transition:all 0.12s;text-transform:uppercase;letter-spacing:0.05em}
 .restart-btn:hover{color:var(--black);border-color:var(--black)}
 
 /* RIGHT PANEL - collage on dark */
@@ -274,14 +274,8 @@ textarea::placeholder{opacity:0.3}
 <div id="app">
   <!-- LANDING -->
   <div id="landing">
-      <!-- medium stars -->
-      <!-- small stars -->
-      <!-- four pointed stars mixed in -->
-    </div>
-
-
     <!-- CENTER -->
-    <div class="landing-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh">
+    <div class="landing-center">
       <div class="landing-wordmark">folio<em>*</em></div>
       <div class="landing-sub">music that fits the room</div>
       <button class="start-btn" onclick="startApp()">Let's go →</button>
@@ -300,7 +294,7 @@ textarea::placeholder{opacity:0.3}
       <div id="qContent"></div>
       <div class="brief-loader" id="briefLoader">
         <div class="brief-spin"></div>
-        <div class="brief-loader-text">composing your brief...</div>
+        <div class="brief-loader-text">setting the mood...</div>
       </div>
       <div class="error-msg" id="errorMsg">Something went wrong. Try again.</div>
       <div class="result" id="result">
@@ -553,7 +547,7 @@ function showStep(i){
       answers[s.id]=s.multi?sel.join(', '):sel[0];
       nextBtn.classList.toggle('show',sel.length>0);
     });
-    nextBtn.addEventListener('click',()=>{if(answers[s.id]){current=i+1;showStep(current);}});
+    nextBtn.addEventListener('click',()=>{if(answers[s.id]){current=i+1;window.scrollTo(0,0);showStep(current);}});
   } else if(s.type==='familiarity'){
     const nextBtn=container.querySelector('#next-familiarity');
     ['famRings','famSurprise'].forEach(id=>{
@@ -563,10 +557,10 @@ function showStep(i){
         this.classList.add('on');answers.familiarity=this.dataset.v;nextBtn.classList.add('show');
       });
     });
-    nextBtn.addEventListener('click',()=>{current=i+1;showStep(current);});
+    nextBtn.addEventListener('click',()=>{current=i+1;window.scrollTo(0,0);showStep(current);});
   } else {
     container.querySelector('#next-extra').addEventListener('click',()=>{
-      answers.extra=container.querySelector('#txtExtra').value.trim();current=i+1;showStep(current);
+      answers.extra=container.querySelector('#txtExtra').value.trim();current=i+1;window.scrollTo(0,0);showStep(current);
     });
   }
 }
