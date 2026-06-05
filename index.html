@@ -20,6 +20,35 @@
 html,body{width:100%;min-height:100%;overflow-x:hidden}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black);cursor:none}
 
+/* PAGE COLOR THEMES */
+.theme-landing{background:#2D1B69!important;color:#F5F0E8!important}
+.theme-q1{background:#E63946!important;color:#F5F0E8!important}
+.theme-q2{background:#1A5C3A!important;color:#F5F0E8!important}
+.theme-q3{background:#0D1B4B!important;color:#F5F0E8!important}
+.theme-q4{background:#CC4E00!important;color:#F5F0E8!important}
+.theme-q5{background:#C2185B!important;color:#F5F0E8!important}
+.theme-q6{background:#006D6D!important;color:#F5F0E8!important}
+.theme-result{background:#1A0A2E!important;color:#F5F0E8!important}
+
+.theme-landing .landing-wordmark,
+.theme-landing .landing-sub,
+.theme-q1 .q-text,.theme-q2 .q-text,.theme-q3 .q-text,.theme-q4 .q-text,.theme-q5 .q-text,.theme-q6 .q-text,
+.theme-q1 .q-step-ind,.theme-q2 .q-step-ind,.theme-q3 .q-step-ind,.theme-q4 .q-step-ind,.theme-q5 .q-step-ind,.theme-q6 .q-step-ind,
+.theme-result .q-text{color:#F5F0E8!important}
+
+.theme-q1 .chip,.theme-q2 .chip,.theme-q3 .chip,.theme-q4 .chip,.theme-q5 .chip,.theme-q6 .chip{border-color:#F5F0E8!important;color:#F5F0E8!important}
+.theme-q1 .chip.on,.theme-q2 .chip.on,.theme-q3 .chip.on,.theme-q4 .chip.on,.theme-q5 .chip.on,.theme-q6 .chip.on{background:#F5F0E8!important;color:#0F0F0F!important}
+.theme-q1 .next-btn,.theme-q2 .next-btn,.theme-q3 .next-btn,.theme-q4 .next-btn,.theme-q5 .next-btn,.theme-q6 .next-btn{border-color:#F5F0E8!important;color:#F5F0E8!important}
+.theme-q1 .next-btn:hover,.theme-q2 .next-btn:hover,.theme-q3 .next-btn:hover,.theme-q4 .next-btn:hover,.theme-q5 .next-btn:hover,.theme-q6 .next-btn:hover{background:#F5F0E8!important;color:#0F0F0F!important}
+.theme-q1 .fam-card,.theme-q2 .fam-card,.theme-q3 .fam-card,.theme-q4 .fam-card,.theme-q5 .fam-card,.theme-q6 .fam-card{border-color:#F5F0E8!important;color:#F5F0E8!important}
+.theme-q1 .fam-title,.theme-q2 .fam-title,.theme-q3 .fam-title,.theme-q4 .fam-title,.theme-q5 .fam-title,.theme-q6 .fam-title{color:#F5F0E8!important}
+.theme-q1 textarea,.theme-q2 textarea,.theme-q3 textarea,.theme-q4 textarea,.theme-q5 textarea,.theme-q6 textarea{border-color:rgba(245,240,232,0.5)!important;color:#F5F0E8!important}
+.theme-q1 textarea::placeholder,.theme-q2 textarea::placeholder,.theme-q3 textarea::placeholder,.theme-q4 textarea::placeholder,.theme-q5 textarea::placeholder,.theme-q6 textarea::placeholder{color:rgba(245,240,232,0.4)!important}
+.theme-q1 .q-hint,.theme-q2 .q-hint,.theme-q3 .q-hint,.theme-q4 .q-hint,.theme-q5 .q-hint,.theme-q6 .q-hint{color:rgba(245,240,232,0.5)!important}
+
+/* STARS LAYER — always present */
+.stars-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;mix-blend-mode:overlay}
+
 .cursor-dot{width:10px;height:10px;background:var(--red);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
 .chalk-trail{position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);animation:fadeTrail 0.5s ease forwards}
 @keyframes fadeTrail{0%{opacity:0.9;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(0.1)}}
@@ -51,7 +80,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 .player-bar.paused .player-dot{animation:none;opacity:0.3}
 
 /* LANDING */
-#landing{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--cream)}
+#landing{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#2D1B69}
 
 /* PHONE HANGING FROM TOP */
 .phone-hang{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;animation:hangSway 4s ease-in-out infinite;transform-origin:top center}
@@ -84,27 +113,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--black)
 
 /* LANDING CENTER */
 .landing-center{position:relative;z-index:10;text-align:center;padding:2rem;max-width:500px}
-.landing-wordmark{font-family:'Playfair Display',serif;font-size:96px;font-weight:900;font-style:italic;letter-spacing:-5px;line-height:0.95;color:var(--black);position:relative;display:inline-block;margin-bottom:4px}
-.landing-wordmark em{font-style:normal;color:var(--red)}
-.wm-bg{position:absolute;inset:-6px -20px;background:var(--yellow);z-index:-1;transform:rotate(-1.5deg)}
-.landing-sub{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(15,15,15,0.6);margin-top:8px;margin-bottom:2rem;letter-spacing:0.02em}
+.landing-wordmark{font-family:'Playfair Display',serif;font-size:96px;font-weight:900;font-style:italic;letter-spacing:-5px;line-height:0.95;color:#F5F0E8;position:relative;display:inline-block;margin-bottom:4px;text-shadow:none}
+.landing-wordmark em{font-style:normal;color:#FFD166}
+.wm-bg{display:none}
+.landing-sub{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,209,102,0.9);margin-top:8px;margin-bottom:2rem;letter-spacing:0.02em}
 .start-btn{padding:16px 44px;background:var(--red);color:#fff;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;border:2.5px solid var(--black);border-radius:100px;cursor:pointer;transition:all 0.15s;box-shadow:4px 4px 0 var(--black);text-transform:uppercase;display:inline-block}
 .start-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--black)}
 .start-btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--black)}
 
 /* MARQUEE */
-.marquee-wrap{position:absolute;bottom:0;left:0;right:0;overflow:hidden;border-top:2.5px solid var(--black);padding:10px 0;background:var(--yellow)}
+.marquee-wrap{position:absolute;bottom:0;left:0;right:0;overflow:hidden;border-top:2px solid rgba(0,0,0,0.8);padding:10px 0;background:#0F0F0F}
 .marquee-track{display:flex;animation:marquee 40s linear infinite;white-space:nowrap}
-.marquee-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;font-weight:700;color:var(--black);padding:0 2rem;flex-shrink:0}
-.marquee-dot{color:var(--red);font-style:normal}
+.marquee-item{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;font-weight:700;color:#F5F0E8;padding:0 2rem;flex-shrink:0}
+.marquee-dot{color:#FFD166;font-style:normal;}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* QUESTION SCREEN */
 #questionScreen{display:none;min-height:100vh}
 #questionScreen.active{display:block}
-.q-left{padding:3rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--cream);position:relative;min-height:100vh;overflow-y:auto;max-width:640px;margin:0 auto}
+.q-left{padding:3rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;min-height:100vh;overflow-y:auto;max-width:640px;margin:0 auto;background:transparent}
 .q-right{display:none}
-.progress-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(15,15,15,0.08);z-index:10}
+.progress-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(245,240,232,0.15);z-index:10}
 .progress-fill{height:100%;background:var(--red);transition:width 0.4s ease}
 .q-step-ind{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(15,15,15,0.35);margin-bottom:12px}
 .q-text{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;font-style:italic;color:var(--black);margin-bottom:20px;line-height:1.2}
@@ -198,7 +227,7 @@ textarea::placeholder{opacity:0.3}
 }
 </style>
 </head>
-<body>
+<body class="theme-landing">
 <div class="cursor-dot" id="cursorDot"></div>
 <audio id="bgMusic" loop preload="auto">
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
@@ -212,13 +241,25 @@ textarea::placeholder{opacity:0.3}
       <img src="dive.png" style="width:100%;object-fit:contain"/>
     </div>
   </div>
-  <div class="loader-wordmark" style="margin-top:1rem">sonic<em>*</em></div>
+  <div class="loader-wordmark" style="margin-top:1rem">folio<em>*</em></div>
   <div class="loader-tagline">music that fits the room</div>
   <!-- chunky bar with % inside -->
   <div style="width:280px;height:32px;background:rgba(15,15,15,0.1);border-radius:100px;margin-top:1.2rem;border:2.5px solid #0F0F0F;overflow:hidden;position:relative">
     <div id="chalkFill" style="height:100%;width:0%;border-radius:100px;transition:width 0.08s linear,background 0.3s;position:relative"></div>
     <div id="loaderPct" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Space Mono,monospace;font-size:12px;font-weight:700;color:#0F0F0F;letter-spacing:0.05em;mix-blend-mode:multiply">0%</div>
   </div>
+</div>
+
+<!-- STARS LAYER — persists across all pages -->
+<div class="stars-layer" id="starsLayer">
+  <svg style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.12" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="wavePattern" x="0" y="0" width="100%" height="60" patternUnits="userSpaceOnUse">
+        <path d="M0 30 Q12.5 15 25 30 Q37.5 45 50 30 Q62.5 15 75 30 Q87.5 45 100 30 Q112.5 15 125 30 Q137.5 45 150 30 Q162.5 15 175 30 Q187.5 45 200 30 Q212.5 15 225 30 Q237.5 45 250 30 Q262.5 15 275 30 Q287.5 45 300 30 Q312.5 15 325 30 Q337.5 45 350 30 Q362.5 15 375 30 Q387.5 45 400 30 Q412.5 15 425 30 Q437.5 45 450 30 Q462.5 15 475 30 Q487.5 45 500 30 Q512.5 15 525 30 Q537.5 45 550 30 Q562.5 15 575 30 Q587.5 45 600 30 Q612.5 15 625 30 Q637.5 45 650 30 Q662.5 15 675 30 Q687.5 45 700 30 Q712.5 15 725 30 Q737.5 45 750 30 Q762.5 15 775 30 Q787.5 45 800 30 Q812.5 15 825 30 Q837.5 45 850 30 Q862.5 15 875 30 Q887.5 45 900 30 Q912.5 15 925 30 Q937.5 45 950 30 Q962.5 15 975 30 Q987.5 45 1000 30 Q1012.5 15 1025 30 Q1037.5 45 1050 30 Q1062.5 15 1075 30 Q1087.5 45 1100 30 Q1112.5 15 1125 30 Q1137.5 45 1150 30 Q1162.5 15 1175 30 Q1187.5 45 1200 30 Q1212.5 15 1225 30 Q1237.5 45 1250 30 Q1262.5 15 1275 30 Q1287.5 45 1300 30 Q1312.5 15 1325 30 Q1337.5 45 1350 30 Q1362.5 15 1375 30 Q1387.5 45 1400 30 Q1412.5 15 1425 30 Q1437.5 45 1450 30 Q1462.5 15 1475 30 Q1487.5 45 1500 30 Q1512.5 15 1537 30 Q1562.5 45 1600 30" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#wavePattern)"/>
+  </svg>
 </div>
 
 <!-- PLAYER -->
@@ -233,60 +274,15 @@ textarea::placeholder{opacity:0.3}
 <div id="app">
   <!-- LANDING -->
   <div id="landing">
-
-    <!-- PHONE HANGING FROM TOP -->
-    <div class="phone-hang">
-      <div class="phone-string"></div>
-      <div class="phone-img"><img src="png 6 (phone).png" alt="phone"/></div>
-    </div>
-
-    <!-- SCATTERED STARS -->
-    <div style="position:absolute;inset:0;pointer-events:none;z-index:1">
-      <!-- large stars -->
-      <div style="position:absolute;top:8%;left:18%;font-size:32px;color:#E63946;opacity:0.5">✦</div>
-      <div style="position:absolute;top:12%;right:22%;font-size:28px;color:#9B5DE5;opacity:0.45">✦</div>
-      <div style="position:absolute;top:48%;left:22%;font-size:36px;color:#FFD166;opacity:0.5">✦</div>
-      <div style="position:absolute;top:55%;right:20%;font-size:30px;color:#06D6A0;opacity:0.4">✦</div>
-      <div style="position:absolute;bottom:22%;left:28%;font-size:24px;color:#E63946;opacity:0.4">✦</div>
-      <div style="position:absolute;bottom:18%;right:28%;font-size:34px;color:#9B5DE5;opacity:0.45">✦</div>
       <!-- medium stars -->
-      <div style="position:absolute;top:25%;left:14%;font-size:18px;color:#FF6B35;opacity:0.35">✦</div>
-      <div style="position:absolute;top:30%;right:14%;font-size:16px;color:#FFD166;opacity:0.4">✦</div>
-      <div style="position:absolute;top:70%;left:16%;font-size:20px;color:#06D6A0;opacity:0.35">✦</div>
-      <div style="position:absolute;top:65%;right:16%;font-size:18px;color:#E63946;opacity:0.3">✦</div>
-      <div style="position:absolute;top:18%;left:32%;font-size:14px;color:#9B5DE5;opacity:0.3">✦</div>
-      <div style="position:absolute;top:80%;right:30%;font-size:16px;color:#FF6B35;opacity:0.35">✦</div>
       <!-- small stars -->
-      <div style="position:absolute;top:6%;left:28%;font-size:10px;color:#E63946;opacity:0.3">✦</div>
-      <div style="position:absolute;top:40%;left:28%;font-size:8px;color:#FFD166;opacity:0.35">✦</div>
-      <div style="position:absolute;top:40%;right:26%;font-size:10px;color:#9B5DE5;opacity:0.3">✦</div>
-      <div style="position:absolute;bottom:30%;left:20%;font-size:8px;color:#06D6A0;opacity:0.3">✦</div>
-      <div style="position:absolute;bottom:28%;right:22%;font-size:10px;color:#E63946;opacity:0.25">✦</div>
-      <div style="position:absolute;top:85%;left:32%;font-size:8px;color:#FFD166;opacity:0.3">✦</div>
       <!-- four pointed stars mixed in -->
-      <div style="position:absolute;top:20%;left:24%;font-size:22px;color:#FFD166;opacity:0.3">★</div>
-      <div style="position:absolute;top:60%;right:24%;font-size:18px;color:#E63946;opacity:0.25">★</div>
-      <div style="position:absolute;bottom:35%;left:26%;font-size:14px;color:#9B5DE5;opacity:0.25">★</div>
-      <div style="position:absolute;top:75%;right:26%;font-size:20px;color:#06D6A0;opacity:0.3">★</div>
     </div>
 
-
-    <!-- TOP LEFT: phone -->
-    <div class="obj" style="width:85px;top:2%;left:2%;transform:rotate(-10deg)"><img src="png 6 (phone).png" alt="phone"/></div>
-    <!-- TOP RIGHT: sushi large -->
-    <div class="obj" style="width:220px;top:0%;right:0%;transform:rotate(8deg)"><img src="png 5.png" alt="sushi"/></div>
-    <!-- MID LEFT: baguettes -->
-    <div class="obj" style="width:120px;top:40%;left:0%;transform:rotate(-22deg)"><img src="3.png" alt="baguettes"/></div>
-    <!-- MID RIGHT: raspberry -->
-    <div class="obj" style="width:160px;top:35%;right:0%;transform:rotate(5deg)"><img src="png 1.png" alt="raspberry"/></div>
-    <!-- BOTTOM LEFT: gramophone large anchor -->
-    <div class="obj" style="width:250px;bottom:5%;left:-1%;transform:rotate(-3deg)"><img src="png 7.png" alt="gramophone"/></div>
-    <!-- BOTTOM RIGHT: red boots -->
-    <div class="obj" style="width:145px;bottom:3%;right:1%;transform:rotate(7deg)"><img src="png 4.png" alt="boots"/></div>
 
     <!-- CENTER -->
-    <div class="landing-center">
-      <div class="landing-wordmark"><div class="wm-bg"></div>sonic<em>*</em></div>
+    <div class="landing-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh">
+      <div class="landing-wordmark">folio<em>*</em></div>
       <div class="landing-sub">music that fits the room</div>
       <button class="start-btn" onclick="startApp()">Let's go →</button>
     </div>
@@ -348,7 +344,7 @@ textarea::placeholder{opacity:0.3}
 
       <!-- handwritten text on dark -->
       <div style="position:absolute;bottom:30%;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,0.15);letter-spacing:0.15em;text-transform:uppercase;text-align:center;white-space:nowrap">what does your space sound like?</div>
-      <div style="position:absolute;bottom:1.5rem;font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,0.1);letter-spacing:4px;text-transform:uppercase">SONIC * VOL.1</div>
+      <div style="position:absolute;bottom:1.5rem;font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,0.1);letter-spacing:4px;text-transform:uppercase">FOLIO * VOL.1</div>
     </div>
   </div>
 </div>
@@ -505,6 +501,13 @@ const STEPS=[
 
 let answers={},current=0;
 
+const stepThemes=['theme-q1','theme-q2','theme-q3','theme-q4','theme-q5','theme-q6'];
+
+function setTheme(theme){
+  document.body.className='';
+  document.body.classList.add(theme);
+}
+
 function startApp(){
   document.getElementById('landing').style.display='none';
   document.getElementById('questionScreen').classList.add('active');
@@ -515,6 +518,7 @@ function updateProgress(i){document.getElementById('progressFill').style.width=(
 
 function showStep(i){
   updateProgress(i);
+  if(i<stepThemes.length) setTheme(stepThemes[i]);
   if(i>=STEPS.length){showGenerate();return;}
   const s=STEPS[i];
   const container=document.getElementById('qContent');
@@ -571,8 +575,8 @@ function showGenerate(){
   updateProgress(STEPS.length);
   document.getElementById('qContent').innerHTML=`
     <div class="q-step-ind">READY</div>
-    <div class="q-text" style="margin-bottom:20px">Your space is ready for its sonic identity.</div>
-    <button class="generate-btn" id="genBtn">Start ✦</button>`;
+    <div class="q-text" style="margin-bottom:20px">Your space is ready for its folio.</div>
+    <button class="generate-btn" id="genBtn">Set the mood ✦</button>`;
   document.getElementById('genBtn').addEventListener('click',generate);
 }
 
@@ -599,7 +603,7 @@ async function generate(){
     document.getElementById('briefLoader').classList.remove('show');
     document.getElementById('errorMsg').classList.add('show');
     document.getElementById('qContent').style.display='block';
-    btn.disabled=false;btn.textContent='Start ✦';
+    btn.disabled=false;btn.textContent='Set the mood ✦';
   }
 }
 
@@ -636,7 +640,7 @@ function renderResult(raw){
     document.getElementById('rLateDesc').textContent=d.tempo.late.desc;
     document.getElementById('rAvoid').innerHTML=d.avoid.map(a=>`<div class="avoid-tag">${a}</div>`).join('');
     document.getElementById('rSpotify').href=`https://open.spotify.com/search/${encodeURIComponent(d.spotifyQuery+' playlist')}/playlists`;
-    document.getElementById('result').classList.add('show');playResultSound();
+    document.getElementById('result').classList.add('show');playResultSound();setTheme('theme-result');
     setTimeout(()=>document.getElementById('result').scrollIntoView({behavior:'smooth'}),100);
   }catch(e){document.getElementById('errorMsg').classList.add('show');}
 }
