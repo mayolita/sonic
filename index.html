@@ -42,8 +42,8 @@ body{font-family:'DM Sans',sans-serif;background:#F5E6B0;color:#0F0F0F;cursor:no
 .player.paused .pdot{animation:none;opacity:0.3}
 
 /* PROGRESS */
-.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(255,255,255,0.2);z-index:100}
-.prog-fill{height:100%;background:#fff;transition:width 0.4s ease;box-shadow:0 0 8px rgba(255,255,255,0.5)}
+.prog-bar{position:fixed;top:0;left:0;right:0;height:4px;background:transparent;z-index:100}
+.prog-fill{height:100%;background:#0F0F0F;transition:width 0.4s ease}
 
 /* MARQUEE */
 .marquee-wrap{display:none}
@@ -122,7 +122,7 @@ textarea::placeholder{color:rgba(0,0,0,0.35)}
 .a-card:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 #0F0F0F}
 .a-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;font-style:italic;margin-bottom:4px;color:#0F0F0F}
 .a-why{font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(0,0,0,0.6);line-height:1.5}
-.a-spot{display:inline-block;margin-top:8px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:#1DB954;text-decoration:none}
+.a-spot{display:block;margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:#1DB954;text-decoration:none}
 .tempo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .t-card{padding:14px;border-radius:14px;text-align:center;border:2px solid rgba(0,0,0,0.1);box-shadow:3px 3px 0 #0F0F0F}
 .t-tag{font-family:'Space Mono',monospace;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;opacity:0.7}
@@ -176,13 +176,10 @@ textarea::placeholder{color:rgba(0,0,0,0.35)}
 
 <!-- LOADER -->
 <div id="loader">
-  <div id="loaderIllus" style="width:200px;height:200px;position:relative;margin-bottom:2rem">
-    <!-- martini top-left crop -->
-    <img id="illus0" src="illustrations.png" style="position:absolute;inset:0;width:380px;height:auto;object-fit:none;object-position:0 0;clip-path:inset(0 50% 50% 0);transform:scale(0.55);transform-origin:top left;opacity:1;transition:opacity 0.5s"/>
-    <!-- whisky top-right crop -->
-    <img id="illus1" src="illustrations.png" style="position:absolute;inset:0;width:380px;height:auto;object-fit:none;object-position:-190px 0;clip-path:inset(0 0 50% 50%);transform:scale(0.55);transform-origin:top left;opacity:0;transition:opacity 0.5s"/>
-    <!-- ramen bottom-left crop -->
-    <img id="illus2" src="illustrations.png" style="position:absolute;inset:0;width:380px;height:auto;object-fit:none;object-position:0 -280px;clip-path:inset(50% 50% 0 0);transform:scale(0.55);transform-origin:top left;opacity:0;transition:opacity 0.5s"/>
+  <div style="width:220px;height:220px;position:relative;margin-bottom:2rem">
+    <img id="illus0" src="illustrations.png" style="width:220px;height:220px;object-fit:contain;object-position:0% 0%;position:absolute;opacity:1;transition:opacity 0.6s ease"/>
+    <img id="illus1" src="illustrations.png" style="width:220px;height:220px;object-fit:contain;object-position:100% 0%;position:absolute;opacity:0;transition:opacity 0.6s ease"/>
+    <img id="illus2" src="illustrations.png" style="width:220px;height:220px;object-fit:contain;object-position:0% 100%;position:absolute;opacity:0;transition:opacity 0.6s ease"/>
   </div>
   <div class="loader-bar-wrap">
     <canvas id="loaderBar" style="width:100%;height:100%;display:block"></canvas>
@@ -481,7 +478,7 @@ function renderResult(raw){
       <div class="a-card">
         <div class="a-name">${a.name}</div>
         <div class="a-why">${a.why}</div>
-        <a class="a-spot" href="https://open.spotify.com/search/${encodeURIComponent(a.search+' playlist')}/playlists" target="_blank">Find playlists ↗</a>
+        <a class="a-spot" href="https://open.spotify.com/search/${encodeURIComponent(a.search+' playlist')}/playlists" target="_blank">Find playlists</a>
       </div>`).join('');
     document.getElementById('rPreBpm').textContent=d.tempo.pre.bpm;
     document.getElementById('rPreDesc').textContent=d.tempo.pre.desc;
