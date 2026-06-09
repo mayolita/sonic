@@ -213,13 +213,14 @@ textarea::placeholder{color:rgba(0,0,0,0.35)}
 
 <!-- LOADER -->
 <div id="loader">
-  <div style="position:relative;width:200px;height:200px;margin-bottom:2rem">
-    <img src="wine.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:1;transition:opacity 0.5s ease"/>
-    <img src="egg.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:0;transition:opacity 0.5s ease"/>
-    <img src="cherry.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:0;transition:opacity 0.5s ease"/>
-    <img src="disco.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:0;transition:opacity 0.5s ease"/>
-    <img src="fish.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:0;transition:opacity 0.5s ease"/>
-    <img src="s&p.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:0;transition:opacity 0.5s ease"/>
+  <div style="position:relative;width:240px;height:240px;margin-bottom:2rem">
+    <img src="wine.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1;transition:opacity 0.5s ease;width:200px;height:200px"/>
+    <img src="egg.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.5s ease;width:200px;height:200px"/>
+    <img src="cherry.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.5s ease;width:200px;height:200px"/>
+    <img src="disco.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.5s ease;width:200px;height:200px"/>
+    <img src="fish.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.5s ease;width:200px;height:200px"/>
+    <img src="saltpepper.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.5s ease;width:200px;height:200px"/>
+    <img src="saltpepper.png" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.5s ease;width:200px;height:200px"/>
   </div>
   <div class="loader-bar-wrap">
     <canvas id="loaderBar" style="width:100%;height:100%;display:block"></canvas>
@@ -346,19 +347,20 @@ const pi=setInterval(()=>{
     ctx.fill();
   }
 },80);
-// cycle doodles
+// cycle doodles with crossfade
 const doodleImgs = document.querySelectorAll('#loader img');
 let doodleIdx = 0;
 setInterval(()=>{
-  doodleImgs[doodleIdx].style.opacity = '0';
+  const prev = doodleIdx;
   doodleIdx = (doodleIdx + 1) % doodleImgs.length;
   doodleImgs[doodleIdx].style.opacity = '1';
+  setTimeout(()=>{ doodleImgs[prev].style.opacity = '0'; }, 50);
 }, 600);
 
 setTimeout(()=>{
   document.getElementById('loader').classList.add('hide');
   setTimeout(()=>{const m=document.getElementById('bgMusic');m.volume=0.12;m.play().catch(()=>{});},300);
-},3000);
+},6000);
 
 function toggleMusic(){
   const m=document.getElementById('bgMusic'),p=document.getElementById('player'),l=document.getElementById('playerLbl');
