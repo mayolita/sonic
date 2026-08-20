@@ -100,9 +100,8 @@ textarea::placeholder{color:rgba(0,0,0,0.35)}
 /* BRIEF LOADER */
 .brief-load{text-align:center;padding:3rem 0;display:none}
 .brief-load.show{display:block}
-.brief-spin{width:60px;height:60px;border-radius:50%;background:repeating-radial-gradient(circle at 50%,#0F0F0F 0,#0F0F0F 1px,rgba(0,0,0,0.1) 1px,rgba(0,0,0,0.1) 4px);animation:spin 1.5s linear infinite;margin:0 auto 1rem;position:relative}
-.brief-spin::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:18px;height:18px;border-radius:50%;background:#E63946}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.brief-spin{width:90px;height:90px;margin:0 auto 1rem;position:relative;animation:vinylSpin 2s linear infinite;transform-origin:center;display:block}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes vinylSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .brief-load-txt{font-family:'Space Mono',monospace;font-size:10px;color:rgba(0,0,0,0.5);letter-spacing:0.15em;text-transform:uppercase}
 
 .err-msg{background:rgba(0,0,0,0.15);border:1.5px solid rgba(255,255,255,0.4);color:#fff;border-radius:12px;padding:12px 16px;font-family:'Space Mono',monospace;font-size:11px;display:none;margin-top:10px}
@@ -260,7 +259,19 @@ textarea::placeholder{color:rgba(0,0,0,0.35)}
   <div class="q-wrap">
     <div id="qContent"></div>
     <div class="brief-load" id="briefLoad">
-      <div class="brief-spin"></div>
+      <svg class="brief-spin" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="#1a1a1a" stroke="#0F0F0F" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="44" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="32" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="28" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="24" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="20" fill="none" stroke="#2a2a2a" stroke-width="0.8"/>
+        <circle cx="50" cy="50" r="18" fill="#C1440E"/>
+        <circle cx="50" cy="50" r="10" fill="#C1440E"/>
+        <circle cx="50" cy="50" r="4" fill="#1a1a1a"/>
+      </svg>
       <div class="brief-load-txt">setting the mood...</div>
     </div>
     <div class="err-msg" id="errMsg">Something went wrong. Try again.</div>
